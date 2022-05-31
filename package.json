@@ -68,5 +68,25 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
-    }
+    },
+    "files": [
+        "package.json",
+        "/lib"
+    ],
+    "description": "Sanity utils for sykdom i familien",
+    "directories": {
+        "lib": "lib"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/navikt/appstatus-react-ds.git"
+    },
+    "author": "navikt",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/navikt/appstatus-react-ds/issues"
+    },
+    "homepage": "https://navikt.github.io/appstatus-react-ds",
+    "main": "lib/index.js",
+    "types": "lib/index.d.js"
 }
