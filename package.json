@@ -1,6 +1,6 @@
 {
     "name": "@navikt/appstatus-react-ds",
-    "version": "0.1.0-beta.3",
+    "version": "1.0.0",
     "private": false,
     "scripts": {
         "start": "react-scripts start",
@@ -47,7 +47,9 @@
     },
     "peerDependencies": {
         "@navikt/ds-css": "^0.17.x",
-        "@navikt/ds-react": "^0.18.x"
+        "@navikt/ds-react": "^0.18.x",
+        "sass": "^1.52.x",
+        "sass-loader": "^13.x"
     },
     "eslintConfig": {
         "extends": [
