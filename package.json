@@ -1,6 +1,6 @@
 {
-    "name": "appstatus-react-ds",
-    "version": "0.1.0-beta.0",
+    "name": "@navikt/appstatus-react-ds",
+    "version": "0.1.0-beta.1",
     "private": false,
     "scripts": {
         "start": "react-scripts start",
