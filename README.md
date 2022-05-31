@@ -1,4 +1,4 @@
-# appstatus-react
+# @navitk/appstatus-react-ds
 
 Sanity-kobling for informasjon om en applikasjon er tilgjengelig, ustabil eller utilgjengelig.
 
