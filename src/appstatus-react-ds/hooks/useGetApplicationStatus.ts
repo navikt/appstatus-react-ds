@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Status, ApplicationStatus, SanityError, SanityConfig } from '../types';
+import { ApplicationStatus, SanityConfig, SanityError, Status } from '../types';
 import { SanityStatusMessage } from '../types/sanityObjects';
 import { getMessage, sanityConfigIsValid } from '../utils';
 import { getAppSanityClient } from '../utils/sanityClient';
@@ -71,7 +71,7 @@ function useGetApplicationStatus(applicationKey: string, sanityConfig: SanityCon
                 setApplicationTeam(appResult.team?.key);
                 setLiveUpdate(appResult.liveUpdate === true);
             }
-        } catch (error) {
+        } catch (error: any) {
             setError(error);
             setApplication(undefined);
             setApplicationTeam(undefined);
@@ -85,7 +85,7 @@ function useGetApplicationStatus(applicationKey: string, sanityConfig: SanityCon
         subscription.current = getAppSanityClient(config)
             .listen(getApplicationDocumentStatusQuery(key))
             .subscribe(({ result }) => {
-                const appResult = (result as any) as ApplicationSanityQueryResult;
+                const appResult = result as any as ApplicationSanityQueryResult;
                 setApplication(appResult);
             });
     };

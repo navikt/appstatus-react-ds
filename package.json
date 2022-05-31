@@ -1,8 +1,20 @@
 {
     "name": "appstatus-react-ds",
-    "version": "0.1.0",
-    "private": true,
+    "version": "0.1.0-beta.0",
+    "private": false,
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject",
+        "build-lib": "npm-run-all clean-lib compile-lib-script copy-files-to-lib",
+        "clean-lib": "rimraf ./lib",
+        "compile-lib-script": "tsc -p tsconfig-build-lib.json",
+        "copy-files-to-lib": "copyfiles -u 2 \"src/appstatus-react/**/*.scss\" lib"
+    },
     "dependencies": {
+        "@portabletext/react": "^1.0.6",
+        "@sanity/client": "^3.3.1",
         "@testing-library/jest-dom": "^5.16.4",
         "@testing-library/react": "^12.1.3",
         "@testing-library/user-event": "^13.5.0",
@@ -17,11 +29,26 @@
         "typescript": "^4.7.2",
         "web-vitals": "^2.1.4"
     },
-    "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "test": "react-scripts test",
-        "eject": "react-scripts eject"
+    "devDependencies": {
+        "@navikt/ds-css": "^0.17.2",
+        "@navikt/ds-react": "^0.18.6",
+        "babel-plugin-named-exports-order": "^0.0.2",
+        "copyfiles": "^2.4.1",
+        "eslint": "^7.32.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-jsx-a11y": "^6.5.1",
+        "eslint-plugin-prettier": "^4.0.0",
+        "eslint-plugin-react": "^7.30.0",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^2.6.2",
+        "prop-types": "^15.8.1",
+        "rimraf": "^3.0.2",
+        "sass": "^1.52.1",
+        "webpack": "^5.72.1"
+    },
+    "peerDependencies": {
+        "@navikt/ds-css": "^0.17.x",
+        "@navikt/ds-react": "^0.18.x"
     },
     "eslintConfig": {
         "extends": [
@@ -41,10 +68,5 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
-    },
-    "devDependencies": {
-        "babel-plugin-named-exports-order": "^0.0.2",
-        "prop-types": "^15.8.1",
-        "webpack": "^5.72.1"
     }
 }

@@ -49,10 +49,12 @@ function useAppStatus(applicationKey: string, sanityConfig: SanityConfig): State
         error: appError,
     } = useGetApplicationStatus(applicationKey, config);
 
-    const { status: teamStatus, message: teamMessage, isLoading: teamIsLoading, error: teamError } = useGetTeamStatus(
-        appTeam,
-        config
-    );
+    const {
+        status: teamStatus,
+        message: teamMessage,
+        isLoading: teamIsLoading,
+        error: teamError,
+    } = useGetTeamStatus(appTeam, config);
 
     const [isLoading, setIsLoading] = useState<boolean>(appIsLoading || teamIsLoading);
     const [error, setError] = useState<SanityError | undefined>(appError || teamError);

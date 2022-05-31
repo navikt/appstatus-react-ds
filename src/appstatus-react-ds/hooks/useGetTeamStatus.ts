@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { TeamStatus, SanityError, SanityConfig, Status } from '../types';
+import { SanityConfig, SanityError, Status, TeamStatus } from '../types';
 import { SanityStatusMessage } from '../types/sanityObjects';
 import { getMessage, sanityConfigIsValid } from '../utils';
 import { getAppSanityClient } from '../utils/sanityClient';
@@ -51,7 +51,7 @@ function useGetTeamStatus(teamKey: string | undefined, sanityConfig: SanityConfi
                 setMessage(getMessage(team.message));
                 setLiveUpdate(team.liveUpdate === true);
             }
-        } catch (error) {
+        } catch (error: any) {
             setError(error);
             setStatus(Status.normal);
             setMessage(undefined);
@@ -65,7 +65,7 @@ function useGetTeamStatus(teamKey: string | undefined, sanityConfig: SanityConfi
         subscription.current = getAppSanityClient(config)
             .listen(query)
             .subscribe(({ result }) => {
-                const team = (result as any) as TeamStatusResult;
+                const team = result as any as TeamStatusResult;
                 setStatus(team.teamApplicationStatus.status);
                 setMessage(getMessage(team.message));
             });

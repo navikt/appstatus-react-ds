@@ -1,10 +1,10 @@
+import { Alert } from '@navikt/ds-react';
 import React from 'react';
-import AlertStripe, { AlertStripeType } from 'nav-frontend-alertstriper';
 import { SanityLocale, SanityMessageType } from '../../types';
 import { SanityStatusMessage } from '../../types/sanityObjects';
 import { getLocaleBlockContent } from '../../utils';
 import SanityBlock from '../sanity-block/SanityBlock';
-import './statusMessage.less';
+import './statusMessage.scss';
 
 interface Props {
     message: SanityStatusMessage;
@@ -12,14 +12,14 @@ interface Props {
     locale?: SanityLocale;
 }
 
-const getAlertStripeTypeFromMessageType = (type?: SanityMessageType): AlertStripeType => {
+const getAlertStripeTypeFromMessageType = (type?: SanityMessageType): 'info' | 'error' | 'warning' => {
     switch (type) {
         case SanityMessageType.info:
             return 'info';
         case SanityMessageType.warning:
-            return 'advarsel';
+            return 'warning';
         case SanityMessageType.error:
-            return 'feil';
+            return 'error';
         default:
             return 'info';
     }
@@ -32,9 +32,9 @@ const StatusMessage = ({ message, locale = 'nb', wrapInAlertStripe = true }: Pro
     }
     const content = <SanityBlock content={info} />;
     return wrapInAlertStripe ? (
-        <AlertStripe type={getAlertStripeTypeFromMessageType(message.messageType)} className="statusMessage">
+        <Alert variant={getAlertStripeTypeFromMessageType(message.messageType)} className="statusMessage">
             {content}
-        </AlertStripe>
+        </Alert>
     ) : (
         <>{content}</>
     );
