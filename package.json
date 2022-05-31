@@ -1,6 +1,6 @@
 {
     "name": "@navikt/appstatus-react-ds",
-    "version": "0.1.0-beta.2",
+    "version": "0.1.0-beta.3",
     "private": false,
     "scripts": {
         "start": "react-scripts start",
@@ -10,7 +10,7 @@
         "build-lib": "npm-run-all clean-lib compile-lib-script copy-files-to-lib",
         "clean-lib": "rimraf ./lib",
         "compile-lib-script": "tsc -p tsconfig-build-lib.json",
-        "copy-files-to-lib": "copyfiles -u 2 \"src/appstatus-react/**/*.scss\" lib"
+        "copy-files-to-lib": "copyfiles -u 2 \"src/appstatus-react-ds/**/*.scss\" lib"
     },
     "dependencies": {
         "@portabletext/react": "^1.0.6",
